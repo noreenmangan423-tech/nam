@@ -1,0 +1,139 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #1a1a2e;
+}
+
+#todo-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#todo-input:focus {
+  border-color: #4a6cf7;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  transition: background 0.2s;
+}
+
+#todo-form button[type="submit"] {
+  background: #4a6cf7;
+  color: #fff;
+}
+
+#todo-form button[type="submit"]:hover {
+  background: #3a5ce5;
+}
+
+#todo-list {
+  list-style: none;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#todo-list li:last-child {
+  border-bottom: none;
+}
+
+#todo-list li input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #4a6cf7;
+}
+
+#todo-list li .todo-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+  word-break: break-word;
+}
+
+#todo-list li.completed .todo-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+#todo-list li .delete-btn {
+  background: transparent;
+  color: #ccc;
+  padding: 4px 8px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+#todo-list li .delete-btn:hover {
+  color: #e74c3c;
+  background: #ffeaea;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+#clear-completed {
+  background: transparent;
+  color: #888;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+#clear-completed:hover {
+  color: #e74c3c;
+  background: #ffeaea;
+}
