@@ -2,8 +2,12 @@ const STORAGE_KEY = 'daily-scheduler';
 const HISTORY_KEY = 'daily-scheduler-history';
 const SCHEDULE_HOUR = 9;
 const SCHEDULE_MINUTE = 0;
+const DEFAULT_URL = 'https://academic.cuit.columbia.edu/guestaccess/';
 
-let scheduledUrl = localStorage.getItem(STORAGE_KEY) || '';
+let scheduledUrl = localStorage.getItem(STORAGE_KEY) || DEFAULT_URL;
+if (!localStorage.getItem(STORAGE_KEY)) {
+  localStorage.setItem(STORAGE_KEY, scheduledUrl);
+}
 let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
 let countdownTimer = null;
 let scheduleTimer = null;
