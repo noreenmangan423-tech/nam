@@ -3,30 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Todo List</title>
+  <title>Daily Scheduler</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Todo List</h1>
+    <h1>Daily Scheduler</h1>
+    <p class="subtitle">Opens a website every day at 9:00 AM</p>
 
-    <form id="todo-form">
-      <input
-        type="text"
-        id="todo-input"
-        placeholder="Add a new task..."
-        autocomplete="off"
-        required
-      />
-      <button type="submit">Add</button>
-    </form>
+    <section class="card" id="setup-section">
+      <h2>Schedule</h2>
+      <form id="url-form">
+        <label for="url-input">Website URL</label>
+        <div class="input-row">
+          <input
+            type="url"
+            id="url-input"
+            placeholder="https://example.com"
+            autocomplete="off"
+          />
+          <button type="submit" id="save-btn">Save</button>
+        </div>
+      </form>
 
-    <ul id="todo-list"></ul>
+      <div id="status-box" class="hidden">
+        <div class="status-row">
+          <span class="label">URL</span>
+          <span id="current-url" class="value url-value"></span>
+        </div>
+        <div class="status-row">
+          <span class="label">Next visit</span>
+          <span id="next-time" class="value"></span>
+        </div>
+        <div class="status-row">
+          <span class="label">Countdown</span>
+          <span id="countdown" class="value countdown"></span>
+        </div>
+        <div class="btn-row">
+          <button id="visit-now-btn" class="secondary">Visit Now</button>
+          <button id="remove-btn" class="danger">Remove</button>
+        </div>
+      </div>
+    </section>
 
-    <div id="footer">
-      <span id="items-left">0 items left</span>
-      <button id="clear-completed">Clear completed</button>
-    </div>
+    <section class="card" id="history-section">
+      <h2>History</h2>
+      <ul id="history-list">
+        <li class="empty">No visits yet.</li>
+      </ul>
+      <button id="clear-history-btn" class="secondary small hidden">Clear history</button>
+    </section>
   </div>
 
   <script src="app.js"></script>
