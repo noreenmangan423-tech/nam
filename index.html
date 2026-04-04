@@ -3,32 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Todo List</title>
+  <title>Medicine Reminder</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Todo List</h1>
+    <header>
+      <h1>Medicine Reminder</h1>
+      <p id="current-time"></p>
+    </header>
 
-    <form id="todo-form">
-      <input
-        type="text"
-        id="todo-input"
-        placeholder="Add a new task..."
-        autocomplete="off"
-        required
-      />
-      <button type="submit">Add</button>
-    </form>
-
-    <ul id="todo-list"></ul>
-
-    <div id="footer">
-      <span id="items-left">0 items left</span>
-      <button id="clear-completed">Clear completed</button>
+    <div id="notification-banner" class="hidden">
+      <span id="notification-msg"></span>
+      <button id="enable-notifications">Enable Notifications</button>
     </div>
+
+    <section class="add-section">
+      <h2>Add Medicine</h2>
+      <form id="med-form">
+        <div class="form-row">
+          <input type="text" id="med-name" placeholder="Medicine name" required autocomplete="off" />
+          <input type="text" id="med-dose" placeholder="Dosage (e.g. 500mg)" autocomplete="off" />
+        </div>
+        <div class="form-row">
+          <input type="time" id="med-time" required />
+          <select id="med-days">
+            <option value="daily">Every day</option>
+            <option value="weekdays">Weekdays only</option>
+            <option value="weekends">Weekends only</option>
+          </select>
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>Your Medicines</h2>
+      <div id="med-list">
+        <p class="empty-state">No medicines added yet.</p>
+      </div>
+    </section>
+
+    <section class="upcoming-section">
+      <h2>Upcoming Today</h2>
+      <div id="upcoming-list">
+        <p class="empty-state">Nothing scheduled for today.</p>
+      </div>
+    </section>
   </div>
 
+  <!-- Alarm sound via Web Audio API (generated in JS) -->
   <script src="app.js"></script>
 </body>
 </html>
